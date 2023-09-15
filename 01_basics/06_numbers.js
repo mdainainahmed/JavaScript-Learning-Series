@@ -1,12 +1,29 @@
-// const num = 400
-console.log(num)
+const num = new Number(27.698)
+// console.log(num)
+
+// console.log(num.toFixed(2))
+
+// console.log(num.toPrecision(2))
+
 // console.log(num.toString())
 
-const num1 = new Number(67.56732)
-// console.log(num1.toFixed(2))
+const num1 = 124346549734245
 
-const num2 = 10000329
-// console.log(num2.toLocaleString('en-IN'))
+// console.log(num1.toLocaleString())
+
+// console.log(num1.toLocaleString('en-IN'))
 
 
-// ++++++++++++++++++++ Maths ++++++++++++++++++++++
+// ++++++++++++++++++ Math +++++++++++++++++++
+// console.log(Math.abs(-4))
+// console.log(Math.round(4.6))
+// console.log(Math.ceil(4.2))
+// console.log(Math.floor(4.9))
+// console.log(Math.max(4,2,6,8,2,1,3))
+// console.log(Math.min(4,2,6,8,2,1,3))
+
+console.log((Math.random()*10) + 1)
+
+const min = 10
+const max = 20
+console.log(Math.floor( ( Math.random() * (max-min+1) ) + min ))
