@@ -54,6 +54,18 @@ const myObj = {
 // const obj5 = {...obj3, ...obj4}
 // console.log(obj5)
 
-Object.freeze(myObj)
 
 
+const course = {
+    courseName: "Ainain's js",
+    coursePrice: 999,
+    courseInstructor: "Ainain"
+}
+
+console.log(course.courseName)
+
+const {courseInstructor} = course
+console.log(courseInstructor)
+
+const {coursePrice: price} = course
+console.log(price)
