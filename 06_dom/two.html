@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg-dark{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <h1>Hello</h1>
+</body>
+<script>
+
+    function createElement( elementType, classVal, id, text, color, bgColor ){
+        const element= document.createElement(elementType);
+        element.className = classVal,
+        element.id = id;
+        element.innerHTML = text;
+        element.style.backgroundColor = bgColor;
+        element.style.color = color;
+        document.body.appendChild(element);
+    }
+
+    createElement("h1", "heading", "headingID", "I am a new Div", "green", "blue");
+
+</script>
+</html>
