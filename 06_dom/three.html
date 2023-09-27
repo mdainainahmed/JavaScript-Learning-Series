@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+
+    // Add 
+    function addLanguage( arr ){
+        const parent = document.querySelector(".language")
+        arr.forEach(element => {
+            const newLanguage = document.createElement("li")
+            // use createTextNode instead of innerHTML
+            newLanguage.appendChild(document.createTextNode(element))
+            parent.appendChild(newLanguage)
+        })
+    }
+
+    // Edit
+    // const secondLang = Array.from(document.querySelectorAll("li"))[1]
+    // const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.outerHTML = "<li>Mojo</li>"
+    //  or
+    // const newLi = document.createElement("li")
+    // newLi.appendChild(document.createTextNode("Mojo"))
+    // newLi.textContent = "Mojo"
+    // secondLang.replaceWith(newLi)
+
+
+    // Edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = "<li>TypeScript</li>"
+
+    // remove
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+    // languages to add
+    const languages = ["Ruby", "Python", "Spring"]
+    addLanguage(languages)
+
+</script>
+</html>
