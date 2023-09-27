@@ -6,45 +6,38 @@
     <title>Document</title>
 </head>
 <body style="background-color: #212121; color: #fff;">
-    <ul class="language">
-        <li>JavaScript</li>
+    <ul class="list">
+        <li class="list-item">javascript</li>
+        <li class="list-item">ruby</li>
+        <li class="list-item">swift</li>
+        <li class="list-item">golang</li>
     </ul>
 </body>
 <script>
+    
+    // add
+    const list = document.querySelector(".list")
+    const newItem = document.createElement("li")
+    // newItem.innerHTML = "solidity"  ( line 23, 24 ) : non an optimal approach
+    // optimal approach 
+    const content = document.createTextNode("solidity")
+    newItem.appendChild(content)
+    list.appendChild(newItem)
 
-    // Add 
-    function addLanguage( arr ){
-        const parent = document.querySelector(".language")
-        arr.forEach(element => {
-            const newLanguage = document.createElement("li")
-            // use createTextNode instead of innerHTML
-            newLanguage.appendChild(document.createTextNode(element))
-            parent.appendChild(newLanguage)
-        })
-    }
-
-    // Edit
-    // const secondLang = Array.from(document.querySelectorAll("li"))[1]
-    // const secondLang = document.querySelector("li:nth-child(2)")
-    // secondLang.outerHTML = "<li>Mojo</li>"
-    //  or
-    // const newLi = document.createElement("li")
-    // newLi.appendChild(document.createTextNode("Mojo"))
-    // newLi.textContent = "Mojo"
-    // secondLang.replaceWith(newLi)
-
-
-    // Edit
-    const firstLang = document.querySelector("li:first-child")
-    firstLang.outerHTML = "<li>TypeScript</li>"
+    // edit
+    // const firstItem = document.querySelector("li")
+    // firstItem.outerHTML = "<li>Mojo</li>"
+    // or
+    const secondItem = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement("li")
+    const liContent = document.createTextNode("mojo")
+    newLi.appendChild(liContent)
+    secondItem.replaceWith(newLi)
+    
 
     // remove
-    const lastLang = document.querySelector("li:last-child")
-    lastLang.remove()
-
-    // languages to add
-    const languages = ["Ruby", "Python", "Spring"]
-    addLanguage(languages)
+    const lastItem = document.querySelector("li:last-child")
+    // lastItem.remove()
 
 </script>
 </html>
