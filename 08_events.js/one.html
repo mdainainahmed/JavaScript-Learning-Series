@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Events</h1>
+        <ul id="list">
+            <li id="list-item">
+                <div id="green" style="height: 200px; width: 200px; border: solid black 1px; background-color: green; margin: 5px;"><img src="" alt="image.jpg"></div>
+            </li>
+            <li id="list-item">
+                <div id="blue" style="height: 200px; width: 200px; border: solid black 1px; background-color: blue; margin: 5px;"><img src="" alt="image.jpg"></div>
+            </li>
+            <li id="list-item">
+                <div id="red" style="height: 200px; width: 200px; border: solid black 1px; background-color: red; margin: 5px;"><img src="" alt="image.jpg"></div>
+            </li>
+            <li id="list-item">
+                <div id="yellow" style="height: 200px; width: 200px; border: solid black 1px; background-color: yellow; margin: 5px;"><img src="" alt="image.jpg"></div>
+            </li>
+            <li id="list-item">
+                <div id="gray" style="height: 200px; width: 200px; border: solid black 1px; background-color: gray; margin: 5px;"><img src="" alt="image.jpg"></div>
+            </li>
+            <li id="list-item">
+                <a id="link" href="https://www.google.com">Google</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // Event Bubbling
+    // document.getElementById('list').addEventListener('click', (e) => {
+    //     console.log("outer clicked")
+    // }, false)
+    // document.getElementById('yellow').addEventListener('click', (e) => {
+    //     console.log("inner clicked")
+    // }, false)
+
+    // Event capturing
+    // document.getElementById('list').addEventListener('click', (e) => {
+    //     console.log("outer clicked")
+    // }, true)
+    // document.getElementById('yellow').addEventListener('click', (e) => {
+    //     console.log("inner clicked")
+    // }, true)
+
+    // stopPrepagation()
+    // document.getElementById('list').addEventListener('click', (event) => {
+    //     console.log("outer clicked")
+    // }, false)
+    // document.getElementById('yellow').addEventListener('click', (event) => {
+    //     console.log("inner clicked")
+    //     event.stopPropagation()
+    // }, false)
+
+    
+    // preventDefault()
+    document.getElementById('link').addEventListener('click', (event) => {
+        event.preventDefault()
+    })
+    
+
+    document.querySelector('#list').addEventListener('click', (event) => {
+        const targetElement = event.target.parentNode
+        console.log(targetElement.tagName)
+
+        if( targetElement.tagName == 'DIV')
+            targetElement.parentNode.remove()
+    })
+
+</script>
+</html>
