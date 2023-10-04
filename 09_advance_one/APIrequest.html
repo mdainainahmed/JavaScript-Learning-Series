@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body style="background-color: #fff; color: #000;">
+<!-- 
+    Value	State	            Description
+    0	    UNSENT	            Client has been created. open() not called yet.
+    1	    OPENED	            open() has been called.
+    2	    HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	    LOADING	            Downloading; responseText holds partial data.
+    4	    DONE	            The operation is complete. 
+-->
+</body>
+<script>
+    const body = document.querySelector('body')
+    
+    const requestUrl = 'https://api.github.com/users/mdainainahmed'
+
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+
+    xhr.onreadystatechange = function (){
+
+        if( xhr.readyState === 4 ){
+
+            // card
+            const card = document.createElement("div")
+            const heading = document.createElement("h1")
+            const img = document.createElement("img")
+            const followerDiv = document.createElement("h2")
+
+            styleCard()
+
+            const info = JSON.parse(this.responseText)
+            const name = info.name
+            const imageUrl = info.avatar_url
+            const followerCount = info.followers
+
+            setName()
+            setImage()
+            setFollower()
+            createElement()
+            body.appendChild(card)
+
+            function styleCard(){
+                card.style.display = "flex"
+                card.style.flexDirection = "column"
+                card.style.justifyContent = "center"
+                card.style.alignItems = "center"
+                card.style.border = "solid"
+            }
+            function setName(){
+                heading.innerHTML = `<span>${name}</span>`
+            }
+            function setImage(){
+                img.setAttribute("src", imageUrl)
+                img.style.height = "200px"
+                img.style.width = "200px"
+            }
+            function setFollower(){
+                followerDiv.innerHTML = `<span>Followers: ${followerCount}</span>`
+            }
+            function createElement(){
+                card.appendChild(heading)
+                card.appendChild(img)
+                card.appendChild(followerDiv)
+            }
+        }
+    }
+    xhr.send()
+    
+
+</script>
+</html>
