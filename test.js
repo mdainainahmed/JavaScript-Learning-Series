@@ -1,19 +1,40 @@
+const url = 'https://jsonplaceholder.typicode.com/users'
 
-new Promise( function(resolve,reject){
 
-    const xml = new XMLHttpRequest()
-    xml.open('GET', 'https://jsonplaceholder.typicode.com/users')
+// new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Async completed.")
+//         resolve({username: "Ainain", age: 22})
+//     }, 1000)
+// })
+// .then((response)=>{
+//     console.log(response)
+// }) 
 
-    xml.onreadystatechange = function(){
+// let name
 
-        if(this.readyState == 4) {
-            const response = this.responseText
-            const data = JSON.parse(response)
-            resolve(data)
-        }
-    }
-    xml.send()
-})
+// async function consumePromise(){
+//     try {
+//         const response = await fetch(url)
+//         const data = await response.json()
+//         // console.log(data)
+//         name = data[0].name
+//         printName()
+//     } catch (error) {
+//         console.log(`Error: ${error}`)
+//     }
+//     function printName(){
+//         console.log(name)
+//     }
+// }
+// consumePromise()
+
+
+fetch(url)
 .then((response)=>{
-    console.log(response)
+    const data = response.json()
+    return data
+})
+.then((data)=>{
+    console.log(data[0].name)
 })

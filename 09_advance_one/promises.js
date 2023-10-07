@@ -188,9 +188,8 @@ consumePromise()
 
 fetch('https://jsonplaceholder.typicode.com/users')
 .then( (response) => {
-    if( response ){
-        return response.json()
-    }
+    return response.json()
+    
 })
 .then( (data) => {
     console.log(data[0].name)
