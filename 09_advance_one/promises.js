@@ -246,7 +246,7 @@ const promise3 = new Promise( (resolve,reject) => {
 
 const promises = [promise1, promise2, promise3];
 
-+++++++++++++++++++++ Promise.all() +++++++++++++++++++++
+// +++++++++++++++++++++ Promise.all() +++++++++++++++++++++
 Promise.all(promises)
 .then((response)=>{
     console.log(response)
