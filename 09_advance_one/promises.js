@@ -186,14 +186,80 @@ consumePromise()
 
 
 
-fetch('https://jsonplaceholder.typicode.com/users')
-.then( (response) => {
-    return response.json()
+// +++++++++++++++++++++++      fetch()  +++++++++++++++++++
+// fetch('https://jsonplaceholder.typicode.com/users')
+// .then( (response) => {
+//     return response.json()
     
+// })
+// .then( (data) => {
+//     console.log(data[0].name)
+// })
+// .catch( (error) => {
+//     console.log(`ERROR: ${error}`)
+// })
+
+
+// ++++++++++++++++++++     Promise.all() & Promise.race()   ++++++++++++++++++++++++++
+const promise1 = new Promise( (resolve,reject) => {
+    
+    let error = false;
+
+    setTimeout( () => {
+
+        if( !error ){
+            console.log("Promise 1 executed...")
+            resolve({username: "Md", age: 1})
+        } else {
+            reject("Error: Something went wrong with Promise 1")
+        }
+    }, 2000)
+} )
+const promise2 = new Promise( (resolve,reject) => {
+    
+    let error = true;
+
+    setTimeout( () => {
+
+        if( !error ){
+            console.log("Promise 2 executed...")
+            resolve({username: "Ainain", age: 2})
+        } else {
+            reject("Error: Something went wrong with Promise 2")
+        }
+    }, 1000)
+} )
+const promise3 = new Promise( (resolve,reject) => {
+    
+    let error = false;
+
+    setTimeout( () => {
+
+        if( !error ){
+            console.log("Promise 3 executed...")
+            resolve({username: "Ahmed", age: 3})
+        } else {
+            reject("Error: Something went wrong with Promise 3")
+        }
+    }, 3000)
+} )
+
+const promises = [promise1, promise2, promise3];
+
++++++++++++++++++++++ Promise.all() +++++++++++++++++++++
+Promise.all(promises)
+.then((response)=>{
+    console.log(response)
 })
-.then( (data) => {
-    console.log(data[0].name)
+.catch((message)=>{
+    console.log(message)
 })
-.catch( (error) => {
-    console.log(`ERROR: ${error}`)
+
+// +++++++++++++++++++++ Promise.race() +++++++++++++++++++++
+Promise.race(promises)
+.then((response)=>{
+    console.log(response)
+})
+.catch((message)=>{
+    console.log(message)
 })
