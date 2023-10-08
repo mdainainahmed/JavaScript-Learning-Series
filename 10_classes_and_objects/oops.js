@@ -28,3 +28,6 @@ const user1 = new User("Ainain", 9, false)
 const user2 = new User("Ahmed", 2, true)
 console.log(user1.getUserDetails())
 
+
+console.log(user1.constructor)
+console.log(user1 instanceof User)
