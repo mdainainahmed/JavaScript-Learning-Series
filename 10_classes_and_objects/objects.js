@@ -8,16 +8,23 @@ multiply5.power = 2
 // console.log(multiply5.prototype)
 
 
-function  add10( num ){
-    return num+10
-}
-const fun1 = function fun(num){
-    this.val = num
-    return num*2
+function User(username, score){
+    this.username = username;
+    this.score = score;
 }
 
-add10.myFun = fun1
+User.prototype.marks = 2;
 
-console.log(add10(4))
-console.log(add10.myFun(3))
-console.log(add10)
+User.prototype.increment = function(){
+    this.score++;
+}
+
+User.prototype.printMe = function(){
+    console.log(`User Details: {Username: ${this.username}, Score: ${this.score}}`);
+}
+
+const user1 = new User("Ainain", 25)
+const user2 = new User("Taha", 37)
+// user1.increment()
+// console.log(user1.printMe(), user2.printMe(), user1.marks)
+console.log(User.prototype)
