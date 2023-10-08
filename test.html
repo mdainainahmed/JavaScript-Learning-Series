@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const xml = new XMLHttpRequest()
+    xml.open('GET', 'https://jsonplaceholder.typicode.com/users')
+    xml.onload = function(){
+        if(xml.status == 200 ){
+            const response = xml.responseText
+            const data = JSON.parse(response)
+            console.log(data)
+        }
+        else 
+            console.log(`ERROR: ${xml.status}`)
+    }
+    xml.send()
+</script>
+</html>
