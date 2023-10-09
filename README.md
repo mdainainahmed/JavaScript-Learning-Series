@@ -1,2 +1,2 @@
 # JavaScript
-A JavaScript Learning Series
+## A JavaScript Learning Series
