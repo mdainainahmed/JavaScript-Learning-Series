@@ -50,15 +50,17 @@ Variables defined inside a function are not accessible (visible) from outside th
 Variables declared with var, let and const are quite similar when declared inside a function.
 */
 
-function myFunc(){
-    let x = 12;
-    var y = 14;
-    const z = 23;
-    console.log(x,y,x);
+var character4 = 
+function foo() {
+    if(true) {
+        var character1 = "Robin"      //function scope
+        let character2 = "Ted"        //block scope
+        const character3 = "Barney"   //block scope
+    }
+    console.log(character1)  //Robin
+    console.log(character2)  //not defined
+    console.log(character3). //not defined
 }
-
-console.log(x,y,z);
-
 
 
 
